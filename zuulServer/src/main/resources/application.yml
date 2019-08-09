@@ -1,0 +1,33 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: app-zuul-gateway
+  security:
+    basic:
+      enable: true
+    user:
+      name: testuser
+      password: 666666
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://testuser:666666@127.0.0.1:8100/eureka,http://testuser:666666@127.0.0.1:9100/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}###${server.port}
+
+zuul:
+  routes:
+    item-service:
+      path: /item-service/**
+      serviceid: app-item
+    order-service:
+      path: /order-service/**
+      serviceid: app-order
+

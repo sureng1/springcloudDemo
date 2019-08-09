@@ -1,0 +1,24 @@
+server:
+  port: 9100
+
+spring:
+  application:
+    name: app-eureka-center
+  security:
+    basic:
+      enable: true
+    user:
+      name: testuser
+      password: 666666
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:8100/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    peer-eureka-nodes-update-interval-ms: 60000
+    enable-self-preservation: false

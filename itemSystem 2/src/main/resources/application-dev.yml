@@ -1,0 +1,24 @@
+#for coding
+server:
+  port: 8001
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: utf-8
+    cache: false
+    check-template-location: true
+  application:
+    name: app-item
+eureka:
+  client:
+    service-url:
+      defaultZone: http://testuser:666666@127.0.0.1:8100/eureka,http://testuser:666666@127.0.0.1:9100/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}###${server.port}
+    ip-address: 127.0.0.2 #将实例连接指定为127.0.0.2
