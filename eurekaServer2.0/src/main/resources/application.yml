@@ -1,28 +1,27 @@
-###服务端口号
 server:
   port: 8100
 
-###服务名称
+###锟斤拷锟斤拷锟斤拷锟斤拷
 spring:
   application:
     name: app-eureka-center
   security:
     basic:
-      enable: true #开启基于HTTP basic的认证
-    user: #配置用户的账号信息
+      enable: true #锟斤拷锟斤拷锟斤拷锟斤拷HTTP basic锟斤拷锟斤拷证
+    user: #锟斤拷锟斤拷锟矫伙拷锟斤拷锟剿猴拷锟斤拷息
       name: testuser
       password: 666666
 
 eureka:
   instance:
-    #注册中心地址
+    #注锟斤拷锟斤拷锟侥碉拷址
     hostname: 127.0.0.1
 
-###客户端调用地址
+###锟酵伙拷锟剿碉拷锟矫碉拷址
   client:
     serviceUrl:
       defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9100/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:8100/eureka/
-###是否将自己注册到Eureka服务中,集群的时候为true
+###锟角凤拷锟皆硷拷注锟结到Eureka锟斤拷锟斤拷锟斤拷,锟斤拷群锟斤拷时锟斤拷为true
     register-with-eureka: true
     fetch-registry: true
 

@@ -12,6 +12,13 @@ spring:
     check-template-location: true
   application:
     name: app-item
+  cloud:
+    config:
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: microservice-config-server
+      label: master
 eureka:
   client:
     service-url:
