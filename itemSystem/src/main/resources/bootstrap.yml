@@ -1,6 +1,10 @@
 spring:
+  application:
+    name: app-item
   cloud:
     config:
       uri: http://127.0.0.1:7788/  #配置中心的地址
-      profile: test #对应配置服务中的{profile}
+      profile: -dev
+      request-connect-timeout: 60 #对应配置服务中的{profile}
+      request-read-timeout: 60
 #      label: master #对应的分支
