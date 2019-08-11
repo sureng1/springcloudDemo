@@ -1,0 +1,27 @@
+#配置文件的加载顺序bootstrap是最先加载的
+#for coding
+server:
+  port: 8001
+
+spring:
+  cloud:
+    config:
+#      uri: http://127.0.0.1:7788
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: microservice-config-server
+      label: master
+  application:
+      name: app-item
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://testuser:666666@127.0.0.1:8100/eureka,http://testuser:666666@127.0.0.1:9100/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}###${server.port}
+    ip-address: 127.0.0.2 #将实例连接指定为127.0.0.2

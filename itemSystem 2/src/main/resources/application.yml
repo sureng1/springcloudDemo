@@ -1,5 +1,14 @@
 #different environment EG dev for dev，test for test pro for product
 
 spring:
+#  cloud:
+#    config:
+#      uri: 127.0.0.1:7788
+#      profile: dev
+##      discovery:
+##        enabled: true
+##        service-id: microservice-config-server
+#      label: master
   profiles:
     active: dev
+
